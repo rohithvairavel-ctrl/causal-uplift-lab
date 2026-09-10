@@ -5,8 +5,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 from sklearn.base import clone
-from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression, Ridge
 
 from .base import BaseMetalearner
 
@@ -20,9 +19,7 @@ class XLearner(BaseMetalearner):
             max_iter=1000, solver="lbfgs"
         )
         # Continuous CATE stage — regressor by default
-        self.effect_model = effect_model or HistGradientBoostingRegressor(
-            max_depth=4, max_iter=100, learning_rate=0.08
-        )
+        self.effect_model = effect_model or Ridge(alpha=1.0)
         self.mu0_ = None
         self.mu1_ = None
         self.tau0_ = None
