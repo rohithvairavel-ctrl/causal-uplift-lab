@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "source": "hillstrom",
+    "treatment_arm": "Mens E-Mail",
+    "outcome": "visit",
+    "path": "/workspace/causal-uplift-lab/data/raw/hillstrom.csv",
+    "rct": true,
+    "ground_truth_cate": false,
+    "n": 42613,
+    "model": "gbm",
+    "test_size": 0.3,
+    "seed": 42,
+    "n_train": 29829,
+    "n_test": 12784,
+    "best_uplift_model": "T-learner",
+    "k_frac": 0.3,
+    "value_per_conversion": 40.0,
+    "cost_per_treatment": 1.0,
+    "feature_cols": [
+      "recency",
+      "history",
+      "mens",
+      "womens",
+      "newbie",
+      "zip_code_Rural",
+      "zip_code_Surburban",
+      "zip_code_Urban",
+      "channel_Multichannel",
+      "channel_Phone",
+      "channel_Web",
+      "history_segment_0",
+      "history_segment_1",
+      "history_segment_2",
+      "history_segment_3",
+      "history_segment_4",
+      "history_segment_5",
+      "history_segment_6"
+    ]
+  },
+  "ate_test": 0.07352941176470588,
+  "learners": {
+    "S-learner": {
+      "auuc": 246.552129,
+      "qini_coefficient": 11.552131,
+      "top_decile_uplift": 0.11488903655136737,
+      "bottom_decile_uplift": 0.07848894108436093,
+      "mean_cate": 0.07243482243339879
+    },
+    "T-learner": {
+      "auuc": 247.764716,
+      "qini_coefficient": 12.764717,
+      "top_decile_uplift": 0.1046955310550477,
+      "bottom_decile_uplift": 0.09242057377650599,
+      "mean_cate": 0.07711157372237905
+    },
+    "X-learner": {
+      "auuc": 241.370086,
+      "qini_coefficient": 6.370087,
+      "top_decile_uplift": 0.11694616063548102,
+      "bottom_decile_uplift": 0.06537549213801874,
+      "mean_cate": 0.07807478670199934
+    },
+    "outcome_risk": {
+      "auuc": 255.277704,
+      "qini_coefficient": 20.277706,
+      "top_decile_uplift": 0.09964043853263624,
+      "bottom_decile_uplift": 0.04649762592393167,
+      "mean_cate": null
+    },
+    "random": {
+      "auuc": 254.803112,
+      "qini_coefficient": 19.803114,
+      "top_decile_uplift": 0.08228900584594813,
+      "bottom_decile_uplift": 0.0395570161925302,
+      "mean_cate": null
+    }
+  },
+  "policy": [
+    {
+      "policy": "uplift_top_k",
+      "k_frac": 0.3,
+      "n_selected": 3835,
+      "n_treated_obs": 1938.0,
+      "n_control_obs": 1897.0,
+      "rate_treated": 0.22136222910216719,
+      "rate_control": 0.136004217185029,
+      "uplift_in_selected": 0.08535801191713818,
+      "incremental_conversions": 327.3479757022249,
+      "value_per_conversion": 40.0,
+      "cost_per_treatment": 1.0,
+      "expected_incremental_revenue": 13093.919028088996,
+      "treatment_cost": 3835.0,
+      "net_value": 9258.919028088996,
+      "roi": 2.414320476685527
+    },
+    {
+      "policy": "risk_top_k",
+      "k_frac": 0.3,
+      "n_selected": 3835,
+      "n_treated_obs": 1968.0,
+      "n_control_obs": 1867.0,
+      "rate_treated": 0.258130081300813,
+      "rate_control": 0.17193358328869845,
+      "uplift_in_selected": 0.08619649801211454,
+      "incremental_conversions": 330.56356987645927,
+      "value_per_conversion": 40.0,
+      "cost_per_treatment": 1.0,
+      "expected_incremental_revenue": 13222.54279505837,
+      "treatment_cost": 3835.0,
+      "net_value": 9387.54279505837,
+      "roi": 2.4478599204845817
+    },
+    {
+      "policy": "treat_everyone",
+      "k_frac": 1.0,
+      "n_selected": 12784,
+      "n_treated_obs": 6392.0,
+      "n_control_obs": 6392.0,
+      "rate_treated": 0.18366708385481853,
+      "rate_control": 0.11013767209011265,
+      "uplift_in_selected": 0.07352941176470588,
+      "incremental_conversions": 940.0,
+      "value_per_conversion": 40.0,
+      "cost_per_treatment": 1.0,
+      "expected_incremental_revenue": 37600.0,
+      "treatment_cost": 12784.0,
+      "net_value": 24816.0,
+      "roi": 1.9411764705882353
+    },
+    {
+      "policy": "treat_none",
+      "k_frac": 0.0,
+      "n_selected": 0,
+      "n_treated_obs": null,
+      "n_control_obs": null,
+      "rate_treated": null,
+      "rate_control": null,
+      "uplift_in_selected": 0.0,
+      "incremental_conversions": 0.0,
+      "value_per_conversion": 40.0,
+      "cost_per_treatment": 1.0,
+      "expected_incremental_revenue": 0.0,
+      "treatment_cost": 0.0,
+      "net_value": 0.0,
+      "roi": null
+    }
+  ]
+}
