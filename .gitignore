@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+data/raw/*
+!data/raw/.gitkeep
+*.joblib
+!*.joblib.b64
+.streamlit/secrets.toml
+dist/
+build/
+*.egg-info/
+.coverage
+htmlcov/
