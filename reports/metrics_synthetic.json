@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "source": "synthetic",
+    "treatment_arm": "Mens E-Mail",
+    "outcome": "visit",
+    "rct": true,
+    "ground_truth_cate": true,
+    "n": 20000,
+    "model": "gbm",
+    "test_size": 0.3,
+    "seed": 42,
+    "n_train": 14000,
+    "n_test": 6000,
+    "best_uplift_model": "S-learner",
+    "k_frac": 0.3,
+    "value_per_conversion": 40.0,
+    "cost_per_treatment": 1.0
+  },
+  "ate_test": 0.1227104908419634,
+  "learners": {
+    "S-learner": {"auuc": 259.867603, "qini_coefficient": 76.170003, "top_decile_uplift": 0.30666666666666664, "bottom_decile_uplift": -0.034731869963878836, "mean_cate": 0.10018708418926478},
+    "T-learner": {"auuc": 250.634598, "qini_coefficient": 66.936999, "top_decile_uplift": 0.2833333333333333, "bottom_decile_uplift": -0.018447023220107023, "mean_cate": 0.10854611038703392},
+    "X-learner": {"auuc": 249.335597, "qini_coefficient": 65.637998, "top_decile_uplift": 0.274372887386586, "bottom_decile_uplift": -0.0237017931985192, "mean_cate": 0.11014949926205539},
+    "outcome_risk": {"auuc": 240.450609, "qini_coefficient": 56.753009, "top_decile_uplift": 0.20361085479872376, "bottom_decile_uplift": -0.011667185208231484, "mean_cate": null},
+    "random": {"auuc": 192.527982, "qini_coefficient": 8.830382, "top_decile_uplift": 0.13995929670036364, "bottom_decile_uplift": 0.11794512784611796, "mean_cate": null}
+  },
+  "policy": [
+    {"policy": "uplift_top_k", "k_frac": 0.3, "n_selected": 1800, "incremental_conversions": 380.22759601706974, "net_value": 13409.10384068279, "roi": 7.449502133712661},
+    {"policy": "risk_top_k", "k_frac": 0.3, "n_selected": 1800, "incremental_conversions": 356.3303767211236, "net_value": 12453.215068844946, "roi": 6.91845281602497},
+    {"policy": "treat_everyone", "k_frac": 1.0, "n_selected": 6000, "incremental_conversions": 736.2629450517803, "net_value": 23450.517802071212, "roi": 3.9084196336785353},
+    {"policy": "treat_none", "k_frac": 0.0, "n_selected": 0, "incremental_conversions": 0.0, "net_value": 0.0, "roi": null}
+  ],
+  "pehe": {"S-learner": 0.04384603819412751, "T-learner": 0.060234129540155223, "X-learner": 0.056779946122232784}
+}
